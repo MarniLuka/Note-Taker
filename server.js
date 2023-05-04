@@ -6,11 +6,10 @@ const route = require('./routes/index')
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Middleware for parsing JSON and urlencoded form data
+// Middleware for parsing JSON and URLencoded from data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-// Content coming from the routes folder will be accessed with /api in the URL
 app.use('/api', route);
 
 // GET Route for homepage

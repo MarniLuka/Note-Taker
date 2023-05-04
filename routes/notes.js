@@ -2,7 +2,7 @@
 const notes = require('express').Router();
 const fs = require('fs');
 
-// localhost:3001/api/notes
+// localhost:3001/notes
 
 // GET Route for notes
 notes.get('/', (req, res) => {
@@ -24,6 +24,7 @@ notes.post('/', (req, res) => {
 
     const { title, text } = req.body;
 
+    // Keys
     if (title && text) {
         const newNote = {
             title,

@@ -2,9 +2,9 @@
 // There aren't many routes though so idk if this was actually necessary in this case... 
 
 const express = require('express');
-const notesRouter = require('./notes');
+const notes = require('./notes');
 const app = express();
 
-app.use('/notes', notesRouter);
+app.use('/notes', notes);
 
 module.exports = app;
