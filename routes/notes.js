@@ -1,8 +1,10 @@
+// Required packages
 const notes = require('express').Router();
 const fs = require('fs');
 
-// GET Route for notes
 // localhost:3001/api/notes
+
+// GET Route for notes
 notes.get('/', (req, res) => {
     console.info(`${req.method} request received to make a note`);
 
