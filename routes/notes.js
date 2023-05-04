@@ -1,6 +1,5 @@
 const notes = require('express').Router();
 const fs = require('fs');
-const uuid = require('../helpers/uuid');
 
 // GET Route for notes
 // localhost:3001/api/notes
@@ -17,6 +16,7 @@ notes.get('/', (req, res) => {
     })
 })
 
+// POST Route for notes
 notes.post('/', (req, res) => {
     console.info(`${req.method} request received to save a note`);
 
@@ -26,10 +26,26 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            id: uuid(),
         };
-
-        readAndAppend(newNote, './db/db.json');
+          
+        fs.readFile('./db/db.json', 'utf8', (err, data) => {
+            if (err) {
+              console.error(err);
+            } else {
+              const parsedNote = JSON.parse(data);
+      
+              // Adds a new note
+              parsedNote.push(newNote);
+      
+              // Writes updated note back to the file
+              fs.writeFile('./db/db.json', JSON.stringify(parsedNote, null, 4),
+                (writeErr) =>
+                  writeErr
+                    ? console.error(writeErr)
+                    : console.info('Successfully updated Notes!')
+              );
+            }
+          });
 
         const response = {
             status: 'Success!',
