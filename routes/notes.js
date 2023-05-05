@@ -1,6 +1,7 @@
 // Required packages
 const notes = require('express').Router();
 const fs = require('fs');
+const uuid = require('../helpers/uuid')
 
 // localhost:3001/notes
 
@@ -29,6 +30,7 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
+            id: uuid()
         };
           
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
