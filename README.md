@@ -8,7 +8,7 @@ Node.js and Express are required to be downloaded to use this application locall
 
 
 ## Usage
-Once on the deployed webiste, simply click on the + button to write a new note, and click on the save button when you are finished to add your note to the left column. 
+Once on the [deployed webiste](https://note-taker-ramen.herokuapp.com/notes), simply click on the + button to write a new note, and click on the save button when you are finished to add your note to the left column. 
 
 ## Credits
 Starter code was provided by the [GATech Coding Bootcamp](https://github.com/coding-boot-camp/miniature-eureka).
